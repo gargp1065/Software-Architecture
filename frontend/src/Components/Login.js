@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './CSS/login.css'
 function Login() {
 
     const [userName, setUserName] = useState("");
@@ -56,28 +57,39 @@ function Login() {
 
     return (
         <div className="container">
-            This is Login Page.
-            Input your credentials to login.    
-        
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input type="text"
-                        
-                        value={userName}
-                        placeholder="Enter UserName"
-                        onChange={(e) => setUserName(e.target.value)}>
-                    </input>
+            <center><h1>OAES Login Form</h1></center>
+              
+            <div className="formCenter">
+                <form onSubmit={handleSubmit} className="loginForm">
+                    
+                    <div>
+                        <label>Choose Login Type: </label>
+                        <select value={role} name="loginType" placeholder="loginType" onChange={(e) => setRole(e.target.value)}>
+                            <option>Admin</option>
+                            <option>Author</option>
+                        </select>
+                    </div>
 
-                    <input type="password"
-                        
-                        value={password}
-                        placeholder="Enter Password"
-                        onChange={(e) => setPassword(e.target.value)}>
-                    </input>
-                    <select type="text" value={role} name="role" placeholder="role" onChange={(e) => setRole(e.target.value)}>
-                        <option>Admin</option>
-                        <option>Author</option>
-                    </select>
+                    <div className="userNameDiv">
+                        <label>Username: </label>
+                        <input type="text"
+                            name="username"
+                            value={userName}
+                            placeholder="Enter UserName"
+                            onChange={(e) => setUserName(e.target.value)}>
+                        </input>
+                    </div>
+
+                    <div className="passWordDiv">
+                        <label>Password: </label>
+                        <input type="password"
+                            name="password"
+                            value={password}
+                            placeholder="Enter Password"
+                            onChange={(e) => setPassword(e.target.value)}>
+                        </input>
+                    </div>
+                    
                     <button onSubmit={handleSubmit}>Submit</button>
                 </form>
             </div>

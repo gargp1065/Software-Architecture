@@ -10,6 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Login/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/adminPage" element={<Admin/>}/>
         <Route path="/authorPage" element={<Author/>}></Route>

@@ -1,0 +1,49 @@
+        
+.container {   
+    padding: 100px;
+}   
+
+.generatePaper {
+    text-align: center;
+}
+
+button {      
+    background-color: lightgreen;
+    width: 200px;  
+    color: black;   
+    padding: 15px;   
+    margin: 20px 0px;   
+    border: none;   
+    cursor: pointer;   
+    text-align: center;
+    font-weight: bold;
+}   
+button:hover {   
+    opacity: 0.7;   
+}   
+input[type=numebr], [type=text]{   
+    width: 50%;   
+    margin: 20px 0;  
+    /* margin-top: 10px; */
+    padding: 12px 20px;   
+    display: inline-block;   
+    border: 2px solid green;   
+    box-sizing: border-box;   
+        
+}  
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+li {
+    display: inline;
+}
+
+
+.logout {
+    text-align: right;
+    margin-top: 10px;
+    font-size: large;
+}

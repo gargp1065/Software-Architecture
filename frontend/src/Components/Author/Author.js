@@ -13,10 +13,23 @@ function Author() {
         e.preventDefault();
         navigate("/generateQuesPaper");
     }
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        navigate("/login");
+    }
+
     return (
         <div className="container">
-            <button onClick={addItem}>Add Item</button>
-            <button onClick={generate}>Generate Question Paper</button>
+            <div className="logout">
+                <button onClick={handleLogout}>Logout</button>
+            </div> 
+            <center><h1>Author Dashboard</h1></center>
+            
+            <button onClick={addItem} style={{marginLeft: "10px"}}>Add Item</button>
+            
+            <button onClick={generate} style={{marginLeft: "10px"}}>Generate Question Paper</button>
         </div>
     )
 }

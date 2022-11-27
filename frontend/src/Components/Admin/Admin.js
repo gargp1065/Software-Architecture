@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router';
+import '../CSS/login.css'
 function Admin() {
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
@@ -22,29 +23,47 @@ function Admin() {
             .catch((error) => {
                 console.log(error);
             })
+
+        setPassword("");
+        setUserName("");
     }
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        navigate("/login");
+    }
+
+
     return (
         <div className="container">
-            
-            Enter the credentials for the author.
+            <div className="logout">
+                <button onClick={handleLogout}>Logout</button>
+            </div> 
+            <center><h1>Add Author</h1></center>
             
             <div>
                 <form onSubmit={handleSubmit}>
-                    <input type="text"
-                        
-                        value={userName}
-                        placeholder="Enter UserName"
-                        onChange={(e) => setUserName(e.target.value)}>
-                    </input>
+                    <div>
+                        <label>UserName : </label>
+                        <input type="text"
+                            
+                            value={userName}
+                            placeholder="Enter UserName"
+                            onChange={(e) => setUserName(e.target.value)}>
+                        </input>
+                    </div>
 
-                    <input type="password"
-                        
-                        value={password}
-                        placeholder="Enter Password"
-                        onChange={(e) => setPassword(e.target.value)}>
-                    </input>
+                    <div>
+                        <label>Password : </label>
+                        <input type="password"
+                            value={password}
+                            placeholder="Enter Password"
+                            onChange={(e) => setPassword(e.target.value)}>
+                        </input>
+                    </div>
                     
-                    <button onSubmit={handleSubmit}>Submit</button>
+                    <center><button onSubmit={handleSubmit}>Add Author</button></center>
                 </form>
             </div>
         </div>
