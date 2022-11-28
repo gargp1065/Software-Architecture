@@ -11,7 +11,17 @@ public class MCQ extends Item{
 
     public MCQ() {}
 
-
+    public MCQ(int itemId, String question, String correctAns, String subject, Author auth, String optionA, String optionB, String optionC, String optionD) {
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.setQuestion(question);
+        this.setCorrectAnswer(correctAns);
+        this.setSubject(subject);
+        this.setAuthor(auth);
+        this.setItemId(itemId);
+    }
 
     public String getOptionA() {
         return optionA;

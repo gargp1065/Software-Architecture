@@ -18,6 +18,14 @@ public class InstrumentController {
     @RequestMapping(method = RequestMethod.POST, value = "/add/MCQ/{authorId}")
     public boolean addItem(@RequestBody MCQ mcq, @PathVariable Integer authorId)
     {
+        String optionA = mcq.getOptionA();
+        String optionB = mcq.getOptionB();
+        String optionC = mcq.getOptionC();
+        String optionD = mcq.getOptionD();
+        String correctAns = mcq.getCorrectAnswer();
+        if( (optionA.compareTo(correctAns)) != 0 && (optionB.compareTo(correctAns)) != 0 && (optionC.compareTo(correctAns)) != 0 && (optionD.compareTo(correctAns)) != 0) {
+            return false;
+        }
         System.out.println(mcq);
         mcqService.addMCQ(mcq, authorId);
         return true;

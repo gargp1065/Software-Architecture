@@ -25,6 +25,17 @@ public class LoginController
 
     @RequestMapping(method = RequestMethod.POST, value = "/admin/register")
     public boolean registerAdmin(@RequestBody Admin admin) {
+        String username = admin.getUsername();
+        int usernameLength = username.length();
+        String password = admin.getPassword();
+        int passwordLength = password.length();
+        System.out.println(password.isEmpty());
+        System.out.println(passwordLength);
+        // Test for login data validation{
+        if(username.isEmpty() || usernameLength < 4 || usernameLength > 20 || password.isEmpty() || passwordLength < 8 || passwordLength > 20) {
+            return false;
+        }
+        System.out.println("here");
         return adminService.registerAdmin(admin);
     }
 

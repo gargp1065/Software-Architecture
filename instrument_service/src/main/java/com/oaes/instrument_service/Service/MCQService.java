@@ -32,6 +32,7 @@ public class MCQService {
             {
                 break;
             }
+            count--;
             result.add(mcq);
         }
         return result;
